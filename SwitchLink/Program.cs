@@ -7,8 +7,8 @@ app.MapControllerRoute(
     );
 
 app.MapControllerRoute(
-    "about",
-   pattern: "about-us",
+    "contact",
+   pattern: "contact-us",
     defaults:new {controller ="home",action="about"}
     );
 app.Run();

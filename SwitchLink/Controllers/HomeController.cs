@@ -13,7 +13,6 @@ namespace SwitchLink.Controllers
         {
             return Content("about page");
         }
-
         public ViewResult Contact()
         {
             return View();

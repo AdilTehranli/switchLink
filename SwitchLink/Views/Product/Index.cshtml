@@ -1,0 +1,25 @@
+﻿@using SwitchLink.Models;
+
+@{
+    List<Products> products = (List<Products>)ViewData["Products"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>products: @products.Count</h2>
+
+    <ul>
+        @foreach(var prd in products)
+        {
+           <li>@prd.Name - @prd.Price</li> 
+        }
+
+    </ul>
+</body>
+</html>
