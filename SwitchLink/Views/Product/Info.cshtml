@@ -1,0 +1,18 @@
+﻿@using SwitchLink.Models;
+
+@{
+    Products prd = ViewBag.Products;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Info</title>
+</head>
+<body>
+    <h2>Product Name: @prd.Name </h2>
+    <h2>Product Price: @prd.Price</h2>
+</body>
+</html>

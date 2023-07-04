@@ -5,7 +5,9 @@ namespace SwitchLink.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        private List<Products> _products;
+
+        public ProductController()
         {
 
             List<Products> products = new List<Products>()
@@ -15,10 +17,20 @@ namespace SwitchLink.Controllers
                 new Products{Id=3,Name="Htc",Price=500},
                 new Products{Id=4,Name="Poco",Price=450}
             };
-            ViewBag.Products = products;
+        }
+        public IActionResult Index()
+        {
+
+            ViewBag.Products = _products;
             return View();
 
                
+        }
+        public IActionResult Info(int id)
+        {
+            var Products = _products.Find(x => x.Id == id);
+            ViewBag.Products =Products;
+            return View();
         }
         public IActionResult Detail()
         {
