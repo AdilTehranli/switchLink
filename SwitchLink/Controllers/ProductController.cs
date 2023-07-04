@@ -29,6 +29,10 @@ namespace SwitchLink.Controllers
         public IActionResult Info(int id)
         {
             var products = _products.Find(x => x.Id == id);
+            if(products == null)
+            {
+                return View("error");
+            }
             ViewBag.Products =products;
             return View();
         }
@@ -36,7 +40,7 @@ namespace SwitchLink.Controllers
         {
             ViewData["Products"]=name;
             TempData["Price"]=price;
-            //return View();
+            
             return RedirectToAction("ShowProducts");
 
         }
