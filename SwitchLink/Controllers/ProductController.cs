@@ -10,7 +10,7 @@ namespace SwitchLink.Controllers
         public ProductController()
         {
 
-            List<Products> products = new List<Products>()
+            _products= new List<Products>()
             {
                 new Products{Id=1,Name="Apple",Price=1200},
                 new Products{Id=2,Name="Samsung",Price=400},
@@ -28,13 +28,21 @@ namespace SwitchLink.Controllers
         }
         public IActionResult Info(int id)
         {
-            var Products = _products.Find(x => x.Id == id);
-            ViewBag.Products =Products;
+            var products = _products.Find(x => x.Id == id);
+            ViewBag.Products =products;
             return View();
         }
-        public IActionResult Detail()
+        public IActionResult Detail(string name,int price)
         {
-            return View();
+            ViewData["Products"]=name;
+            TempData["Price"]=price;
+            //return View();
+            return RedirectToAction("ShowProducts");
+
+        }
+        public IActionResult ShowProducts() {
+            var price = TempData["Price"];
+            return View("Detail");
         }
     }
 }
